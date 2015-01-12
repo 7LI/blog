@@ -1,0 +1,14 @@
+<table class="table table-striped">
+	<tr>
+		<td></td>
+		<td>Title</td>
+		<td>Update_at</td>
+	</tr>
+	<% for(var i = 0; i < blogs.length; i++){ %>
+	<tr>
+		<td><%= i + 1 %></td>
+		<td><a href="/blogs/<%= blogs[i]._id %>"><%= blogs[i].title %></a></td>
+		<td><%= blogs[i].update_at %></td>
+	</tr>
+	<% } %>
+</table>

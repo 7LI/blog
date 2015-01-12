@@ -7,6 +7,6 @@ var Blog = new Schema({
 	update_at: Date
 });
 mongoose.model('Blog', Blog);
-mongoose.connect('mongodb://localhost:27017/blog')
+mongoose.connect('mongodb://localhost:27017')
 
 

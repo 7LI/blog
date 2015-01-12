@@ -6,13 +6,15 @@ var cookieParser = require('cookie-parser');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var partials = require('express-partials')
+var multer = require('multer'); 
+// database
 var db = require('./db');
 
 var index = require('./routes/index');
 var blogs = require('./routes/blogs');
 
 var app = express();
- 
+
 // view engine setup
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
@@ -21,11 +23,16 @@ app.use(partials());
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multer()); // for parsing multipart/form-data
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.post('/test/:id', function(req, res){
+    res.json(req.body);
+})
+
+// app.use('/', index);
 app.use('/', blogs);
 
 // catch 404 and forward to error handler
@@ -57,6 +64,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
