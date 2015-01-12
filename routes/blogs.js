@@ -7,7 +7,6 @@ var Blog = mongoose.model('Blog');
 router.get('/blogs/new', function(req, res) {
 	res.render('blog/new', {
 		title: 'New blog', 
-		style: 'blog',
 		script: 'blog'
 	});
 });

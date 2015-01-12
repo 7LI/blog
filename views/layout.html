@@ -5,7 +5,9 @@
 		<link rel="stylesheet" href="/stylesheets/bootstrap.css" />
 		<link rel="stylesheet" href="/stylesheets/bootstrap-theme.css" />
 		<link rel="stylesheet" href="/plugins/markdown/css/editor.css" />
+		<% if(typeof(style) !== 'undefined'){ %>
 		<link rel="stylesheet" href="/plugins/markdown/css/<%= style %>.css" />
+		<% } %>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -22,7 +24,11 @@
 		        marked: '../../plugins/markdown/js/marked'
 		    }
 		  });
+		  <% if(typeof(script) !== 'undefined'){ %>
 		  require(['jquery', 'bootstrap', '../<%= script %>']);
+		  <% } else { %>
+		  require(['jquery', 'bootstrap');
+	  	  <% } %>
 		</script>
 	</body>
 </html>
