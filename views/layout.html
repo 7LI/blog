@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-	<head>
-		<title><%= title %></title>
-		<link rel="stylesheet" href="/stylesheets/bootstrap.css" />
-		<link rel="stylesheet" href="/stylesheets/bootstrap-theme.css" />
-		<link rel="stylesheet" href="/plugins/markdown/css/editor.css" />
-		<% if(typeof(style) !== 'undefined'){ %>
-		<link rel="stylesheet" href="/plugins/markdown/css/<%= style %>.css" />
-		<% } %>
-	</head>
-	<body>
-		<div class="container-fluid">
-			<%- body %>
-		</div>
-		<script src="/javascripts/lib/require.js"></script>
-		<script>
-		  require.config({
-		    baseUrl: '/javascripts/lib',
-		    paths: {
-		        jquery: 'jquery',
-		        bootstrap: 'bootstrap',
-		        editor: '../../plugins/markdown/js/editor',
-		        marked: '../../plugins/markdown/js/marked'
-		    }
-		  });
-		  <% if(typeof(script) !== 'undefined'){ %>
-		  require(['jquery', 'bootstrap', '../<%= script %>']);
-		  <% } else { %>
-		  require(['jquery', 'bootstrap');
-	  	  <% } %>
-		</script>
-	</body>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css" />
+    <link rel="stylesheet" href="/plugins/markdown/css/editor.css" />
+    <% if(typeof(style) !== 'undefined'){ %>
+    <link rel="stylesheet" href="/plugins/markdown/css/<%= style %>.css" />
+    <% } %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <%- body %>
+    </div>
+    <script src="/javascripts/lib/require.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/javascripts/lib',
+        paths: {
+            jquery: 'jquery',
+            bootstrap: 'bootstrap',
+            editor: '../../plugins/markdown/js/editor',
+            marked: '../../plugins/markdown/js/marked'
+        }
+      });
+      <% if(typeof(script) !== 'undefined'){ %>
+      require(['jquery', 'bootstrap', '../<%= script %>']);
+      <% } else { %>
+      require(['jquery', 'bootstrap');
+        <% } %>
+    </script>
+  </body>
 </html>
